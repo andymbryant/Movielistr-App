@@ -1,0 +1,26 @@
+<ol>
+  <li>
+  <div class="card">
+    <span class="helper"></span><img class="poster" src="{{movie.poster}}" alt="">
+      <h1 class="movie-title">{{movieArray[0].title}}</h1>
+      <ul class="tech-info">
+        <li>{{movie.rated}} •</li>
+        <li>{{movie.year}} •</li>
+        <li>{{movie.runtime}}</li>
+      </ul>
+      <div class="reviews">
+        <img class="tomatoes" src="http://www.abryant.co/movie_images/tomato.png" alt=""><span>{{movie.rotten}}</span>
+        <img class="imdb" src="http://www.abryant.co/movie_images/star.png" alt=""><span>{{movie.imdb}}</span>
+      </div>
+      <div class="plot">
+        <p>{{movie.plot}}</p>
+      </div>
+      <div class="actors">
+        <p>{{movie.actors}}</p>
+      </div>
+      <div class="director">
+        <p><span class="director-label">Director:</span> {{movie.director}}</p>
+      </div>
+    </div>
+  </li>
+</ol>

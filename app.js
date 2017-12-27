@@ -21,12 +21,13 @@ var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-// var lists = require('./routes/lists')
+var lists = require('./routes/lists')
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Mongoose is connected');
 });
+
 mongoose.Promise = global.Promise;
 
 //Use Handlebars
@@ -48,8 +49,6 @@ app.use(session({
     resave: true
 }));
 
-
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -70,6 +69,8 @@ app.use(expressValidator({
   }
 }));
 
+    
+
 app.use(flash());
 
 // Global Vars
@@ -83,10 +84,7 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/users', users);
-
-
-
-
+app.use('/lists', lists);
 
 app.set('port', (process.env.PORT || 3000));
 

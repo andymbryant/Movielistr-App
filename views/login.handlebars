@@ -1,12 +1,18 @@
-<h2 class="page-header">Account Login</h2>
-<form method="post" action="/users/login">
-  <div class="form-group">
-    <label>Username</label>
-    <input type="text" class="form-control" name="username" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+<div class="login-form">
+    <h1 class="app-title">Recomovie</h1>
+    <h3 class="app-description">The best way to recommend movies to your friends</h3>
+    <form method="post" action="/users/login">
+        <div class="form-group ">
+            <input type="text" class="form-control" name="username" placeholder="Username " id="UserName">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="form-group log-status">
+            <input type="password" class="form-control" name="password" placeholder="Password" id="Passwod">
+            <i class="fa fa-lock"></i>
+        </div>
+        <span class="alert">Invalid Credentials</span>
+        <button type="submit" class="log-btn btn-default">Log in</button>
+        <p><a class="link" href="/users/register">Register</a></p>
+        <p><strong>&#160 • &#160</strong><a class="link" href="">Lost your password?</a></p>
+    </form>
+ </div>

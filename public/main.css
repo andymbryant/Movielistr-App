@@ -1,0 +1,258 @@
+/* @import url(https://fonts.googleapis.com/css?family=Vibur); */
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: arial;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #FF5733;
+}
+
+.app-title {
+  color: #999;
+  text-align: center;
+  font-family: 'Vibur', sans-serif;
+  font-size: 50px;
+  margin: .5rem 0 1rem 0;
+}
+
+.app-description {
+  color: #bbb;
+  font-weight: 400;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0 0 2rem 0;
+}
+
+.login-form {
+  width: 350px;
+  padding: 40px 30px;
+  background: #eee;
+  border-radius: 4px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.login-form p {
+  float: left;
+  display: inline;
+  color: #666;
+  margin: 1rem 0 0 0;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding: 5px 7px 5px 15px;
+  background: #fff;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-control:focus, .form-control:focus + .fa {
+  border-color: #10CE88;
+  color: #10CE88;
+}
+
+.form-group .fa {
+  position: absolute;
+  right: 15px;
+  top: 17px;
+  color: #999;
+}
+
+.log-status.wrong-entry {
+  animation: wrong-log 0.3s;
+}
+
+.log-status.wrong-entry .form-control, .wrong-entry .form-control + .fa {
+  border-color: #ed1c24;
+  color: #ed1c24;
+}
+
+.log-btn {
+  background: #07AF66;
+  dispaly: inline-block;
+  width: 100%;
+  font-size: 16px;
+  height: 50px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.link {
+  text-decoration: none;
+  color: #C6C6C6;
+  float: right;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #8C918F;
+}
+
+.alert {
+  display: none;
+  font-size: 12px;
+  color: #f00;
+  float: left;
+}
+
+.register-description {
+  color: #bbb;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0 0 2rem 0;
+  font-weight: 400;
+}
+
+.info-description {
+  color: #bbb;
+  text-align: center;
+  font-size: .7rem;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.free {
+  font-weight: 500;
+  font-style: normal;
+  color: #666;
+}
+
+@keyframes wrong-log {
+  0%, 100% {
+    left: 0px;
+  }
+  20%, 60% {
+    left: 15px;
+  }
+  40%, 80% {
+    left: -15px;
+  }
+}
+
+.list-card {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: .5rem 2rem;
+  display: block;
+  min-width: 320px;
+  width: 67%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+}
+
+.none {
+  display: none;
+}
+
+
+
+#movies {
+  list-style-type: none;
+  padding: 0;
+}
+.card {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: .5rem 2rem;
+  display: block;
+  min-width: 320px;
+  width: 67%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  background-color: white;
+}
+
+.movie-title {
+  margin-bottom: 0;
+  color: black;
+  text-align: left;
+}
+
+.tech-info {
+  padding: 0;
+  margin-top: .5rem;
+}
+.tech-info li {
+  color: grey;
+  display: inline;
+  text-align: left;
+}
+
+.reviews {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.tomatoes, .imdb {
+  width: 40px;
+}
+
+.imdb {
+  margin-left: 7px;
+}
+
+.reviews span {
+  position: relative;
+  top: -10px;
+  margin-left: 4px;
+}
+
+.plot {
+  max-width: 75%;
+}
+
+.actors {
+  font-weight: 700;
+}
+
+.director-label {
+  font-weight: 700;
+}
+
+.poster {
+  position: relative;
+  margin: auto;
+  height: 245px;
+  top: 20px;
+  vertical-align: middle;
+  float: right;
+}
+
+@media only screen and (max-width: 900px) {
+  .poster {
+    height: 170px;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .poster {
+    height: 120px;
+  }
+  .plot {
+    max-width: 90%;
+  }
+}
