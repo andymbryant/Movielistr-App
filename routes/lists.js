@@ -4,9 +4,10 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-// var ObjectId = require('mongoose').Types.ObjectId;
+var ObjectId = require('mongoose').Types.ObjectId;
+var async = require('async');
 
- 
+
 let List = require('../models/list');
 let Movie = require('../models/movie');
 
@@ -15,36 +16,44 @@ var db = mongoose.connection;
 
 router.post('/', ensureAuthenticated, function(req, res) {
     let listID = req.body.listID;
-    //5a3b06e6f202420444accab6
+
     List.find(ObjectId(listID), function(err, list) {
-        for (let i = 0; i<=list[0].movies.length; i++) {
-            Movie.findOne({"_id": list[0].movies[i]}, function(err, movie) {
-                console.log(list[0].movies[i]);
-                movieArray.push(list[0].movies[i]);
-                res.render('movie-list', {
-                        movie: movie
-                            })
-                    })
-            }
-
-
-        // let movie1 = list[0].movies[0];
-        // let movie2 = list[0].movies[1];
-        // Movie.findOne({"_id": movie1}, function(err, movie) {
-        //     console.log(movie);
-        //     res.render('movie-list', {
-        //         movie: movie
-        //     })
-        // })
-
+      let moviesArray = [];
+      let listTitle = list[0].listName;
+      async.each(list[0].movies, function(movieID) {
+        moviesArray.push(movieID);
+        })
+        Movie.find({"id": moviesArray[0]}, function(err, movie) {
+          res.render('movie-list', {
+            movie: movie[0],
+            listID,
+            listTitle
+          })
+      });
     });
 });
 
-router.get('/:listID', ensureAuthenticated, function(req, res) {
-    res.render('movie-list', {
+router.post('/new-list', ensureAuthenticated, function(req, res) {
+  res.render()
+});
 
-    })
-})
+router.post('/update-title', ensureAuthenticated, function(req, res) {
+  let listID = req.body.listID;
+  let newTitle = req.body.newTitle
+  List.update(ObjectId(listID), {$set: { listName: newTitle}}, console.log('updated title in mongoose'));
+
+  // List.find(ObjectId(listID), function(err, list) {
+  //   list[0].listName = newTitle;
+  //   console.log(newTitle);
+  //   list[0].markModified('object');
+  //   list[0].save( function (err, updatedTitle) {
+  //     if (err) {
+  //       console.log(err)
+  //     };
+  //     console.log(`this is the updated title: ${updatedTitle}`);
+  //   })
+  // })
+});
 
 router.post('/new-movie', (req, res) => {
 

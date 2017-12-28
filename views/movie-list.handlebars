@@ -1,8 +1,10 @@
-<ol>
+<input class='none list-id' type="text" name="" value="{{listID}}">
+<input class="list-title" type="text" name="" value="{{listTitle}}">
+<ol id="movies">
   <li>
   <div class="card">
     <span class="helper"></span><img class="poster" src="{{movie.poster}}" alt="">
-      <h1 class="movie-title">{{movieArray[0].title}}</h1>
+      <h1 class="movie-title">{{movie.title}}</h1>
       <ul class="tech-info">
         <li>{{movie.rated}} •</li>
         <li>{{movie.year}} •</li>
@@ -24,3 +26,10 @@
     </div>
   </li>
 </ol>
+
+
+
+    <form id="input-form">
+      <input type="text" name="imdb-url" placeholder="Paste IMDB url here to add movie">
+      <button>Add Movie</button>
+    </form>

@@ -153,28 +153,15 @@ body {
   }
 }
 
-.list-card {
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  padding: .5rem 2rem;
-  display: block;
-  min-width: 320px;
-  width: 67%;
-  max-width: 1200px;
-  margin: 1rem auto 0;
-}
-
 .none {
   display: none;
 }
-
-
 
 #movies {
   list-style-type: none;
   padding: 0;
 }
-.card {
+.card, .list-card {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   padding: .5rem 2rem;
@@ -240,6 +227,13 @@ body {
   top: 20px;
   vertical-align: middle;
   float: right;
+}
+
+.delete {
+  position: relative;
+  float: right;
+  top: -45px;
+  right: -27px;
 }
 
 @media only screen and (max-width: 900px) {

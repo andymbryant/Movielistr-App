@@ -10,8 +10,8 @@ mongoose.connect('mongodb://localhost/recoMovie');
 var db = mongoose.connection;
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
-	//let userID = req.user._id;
-	List.find({"userID": "5a39d63f92e6286ffc80b59c"}, function(err, lists) {
+	let userID = req.user._id;
+	List.find({"userID": userID}, function(err, lists) {
 		res.render('dashboard', {
 			lists,
 	});

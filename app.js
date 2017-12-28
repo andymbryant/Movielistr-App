@@ -21,7 +21,8 @@ var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var lists = require('./routes/lists')
+var lists = require('./routes/lists');
+var remove = require('./routes/remove');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -69,8 +70,6 @@ app.use(expressValidator({
   }
 }));
 
-    
-
 app.use(flash());
 
 // Global Vars
@@ -85,6 +84,7 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/lists', lists);
+app.use('/remove', remove);
 
 app.set('port', (process.env.PORT || 3000));
 
