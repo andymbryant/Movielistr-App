@@ -1,35 +1,41 @@
 <input class='none list-id' type="text" name="" value="{{listID}}">
-<input class="list-title" type="text" name="" value="{{listTitle}}">
+<input class="list-title" type="text" name="" value="{{listNameArray.[0]}}">
+
 <ol id="movies">
-  <li>
-  <div class="card">
-    <span class="helper"></span><img class="poster" src="{{movie.poster}}" alt="">
-      <h1 class="movie-title">{{movie.title}}</h1>
-      <ul class="tech-info">
-        <li>{{movie.rated}} •</li>
-        <li>{{movie.year}} •</li>
-        <li>{{movie.runtime}}</li>
-      </ul>
-      <div class="reviews">
-        <img class="tomatoes" src="http://www.abryant.co/movie_images/tomato.png" alt=""><span>{{movie.rotten}}</span>
-        <img class="imdb" src="http://www.abryant.co/movie_images/star.png" alt=""><span>{{movie.imdb}}</span>
+  {{# each movie}}
+    <li>
+    <div class="card">
+      <span class="helper"></span><img class="poster" src="{{[0].poster}}" alt="">
+        <h1 class="movie-title">{{[0].title}}</h1>
+        <ul class="tech-info">
+          <li>{{[0].rated}} •</li>
+          <li>{{[0].year}} •</li>
+          <li>{{[0].runtime}}</li>
+        </ul>
+        <div class="reviews">
+          <img class="tomatoes" src="http://www.abryant.co/movie_images/tomato.png" alt=""><span>{{[0].rotten}}</span>
+          <img class="imdb" src="http://www.abryant.co/movie_images/star.png" alt=""><span>{{[0].imdb}}</span>
+        </div>
+        <div class="plot">
+          <p>{{[0].plot}}</p>
+        </div>
+        <div class="actors">
+          <p>{{[0].actors}}</p>
+        </div>
+        <div class="director">
+          <p><span class="director-label">Director:</span> {{[0].[0].director}}</p>
+        </div>
       </div>
-      <div class="plot">
-        <p>{{movie.plot}}</p>
-      </div>
-      <div class="actors">
-        <p>{{movie.actors}}</p>
-      </div>
-      <div class="director">
-        <p><span class="director-label">Director:</span> {{movie.director}}</p>
-      </div>
-    </div>
-  </li>
+    </li>
+  {{/ each}}
 </ol>
 
 
 
     <form id="input-form">
-      <input type="text" name="imdb-url" placeholder="Paste IMDB url here to add movie">
+      <input type="text" id="add-movie" name="imdb-url" placeholder="Paste IMDB url here to add movie">
       <button>Add Movie</button>
+    </form>
+    <form id="exit-list">
+      <button class="button-link">Exit list</button>
     </form>

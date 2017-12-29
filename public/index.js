@@ -37,13 +37,12 @@ $(function() {
 
   $('#input-form').on('submit', function (e) {
           e.preventDefault();
-
+          let listID = $('.list-id').val();
           const movieString = $('[name=imdb-url]').val();
           const id = movieString.substring(26, 35);
           const apiKey = '&apikey=36a0bcd3';
           const baseUrl = 'http://www.omdbapi.com/?i=';
           const finalUrl = baseUrl + id + apiKey;
-          console.log(finalUrl);
 
           $.ajax({
             type: "GET",
@@ -53,9 +52,9 @@ $(function() {
               $.ajax({
                 type: "POST",
                 url: 'http://localhost:3000/lists/new-movie',
-                data: data,
+                data: {data:data, listID:listID},
                 dataType: 'json',
-                success: console.log(data)
+                success: console.log('This worked abcdef')
               });
 
               $('#movies').append(
@@ -87,4 +86,37 @@ $(function() {
               );
             }
           });
+          $('#add-movie').val('');
         });
+
+$('.new-list-form').on('submit', function(e) {
+  e.preventDefault();
+
+  $.ajax({
+    type: "GET",
+    url: 'http://localhost:3000/lists/new-list',
+    success: (data) => {
+      $('#list-of-lists').append(
+        `<li>
+          <div class="list-card">
+              <h1>New List</h1>
+              <form action="/lists" method="post">
+                  <input class="none" type="text" name="listID" value="${data}">
+                  <button type="submit" value="hello">Open List</button>
+              </form>
+          </div>
+        </li>`
+      )
+    }
+  });
+})
+
+$('#exit-list').on('submit', function(e) {
+  e.preventDefault();
+
+  $.ajax({
+    type: "GET",
+    url: 'http://localhost:3000/back',
+    success: console.log('We went back')
+  })
+})

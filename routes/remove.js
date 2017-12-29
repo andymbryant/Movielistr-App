@@ -23,9 +23,15 @@ router.post('/movie', function(req, res) {
       console.log('it worked!');
     }
   });
-  // res.redirect('http://google.com', {
-  //   listID,
-  // })
+
+  List.findByIdAndUpdate(
+    ObjectId(listID),
+    { $pull: {movies: req.body.movieID }},
+    {multi: true},
+    function(err, model) {
+      console.log(err);
+    }
+  );
 })
 
 module.exports = router;

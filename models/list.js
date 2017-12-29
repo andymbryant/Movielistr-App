@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 let listSchema = mongoose.Schema({
-  _id: String,
+  _id: mongoose.Schema.ObjectId,
   userID: String,
   listName: String,
   movies: [{

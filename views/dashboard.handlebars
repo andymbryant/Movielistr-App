@@ -1,16 +1,20 @@
  <h2 class="page-header">Dashboard</h2>
 <p>Welcome to your dashboard</p>
 
+<ol id="list-of-lists">
 {{# each lists}}
-  <div class="list-card">
-      <h1>{{this.listName}}</h1>
-      <form action="/lists" method="post">
-          <input class="none" type="text" name="listID" value="{{this._id}}">
-          <button type="submit" value="hello">Open List</button>
-      </form>
-  </div>
+  <li>
+    <div class="list-card">
+        <h1>{{this.listName}}</h1>
+        <form action="/lists" method="post">
+            <input class="none" type="text" name="listID" value="{{this._id}}">
+            <button type="submit" value="hello">Open List</button>
+        </form>
+    </div>
+  </li>
 {{/ each}}
+</ol>
 
-<form class="" action="/lists/new-list" method="post">
+<form class="new-list-form" action="/lists/new-list" method="post">
     <button type="submit" value="hello">New List</button>
 </form>
