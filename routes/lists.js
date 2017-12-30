@@ -14,25 +14,6 @@ let Movie = require('../models/movie');
 mongoose.connect('mongodb://localhost/recoMovie');
 var db = mongoose.connection;
 
-// router.post('/', ensureAuthenticated, function(req, res) {
-//     let listID = req.body.listID;
-//
-//     List.find(ObjectId(listID), function(err, list) {
-//       let moviesArray = [];
-//       let listTitle = list[0].listName;
-//       async.each(list[0].movies, function(movieID) {
-//         moviesArray.push(movieID);
-//         })
-//         Movie.find({"id": moviesArray[0]}, function(err, movie) {
-//           res.render('movie-list', {
-//             movie: movie[0],
-//             listID,
-//             listTitle
-//           })
-//       });
-//     });
-// }); 
-
 router.post('/', ensureAuthenticated, function(req, res) {
     let listID = req.body.listID;
     let listNameArray = [];

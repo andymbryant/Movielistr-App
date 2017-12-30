@@ -10,24 +10,26 @@ mongoose.connect('mongodb://localhost/recoMovie');
 var db = mongoose.connection;
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
-
+	let listFound = [];
+	let firstName = req.user.name;
 	let userID = req.user._id;
 	List.find({"userID": userID}, function(err, lists) {
+		if (lists) {
+			listFound.push(lists);
+		}
 		res.render('dashboard', {
 			lists,
+			firstName,
+			listFound,
 		});
 	});
-});
-
-router.get('/back', ensureAuthenticated, function(req, res) {
-	console.log('the back route ran');
-	res.redirect('back');
 });
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	} else {
+		console.log('not authorized');
 		res.redirect('/users/login');
 	}
 }
