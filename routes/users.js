@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+const flash = require('connect-flash');
 
 var User = require('../models/user');
 
@@ -61,6 +62,7 @@ passport.use(new LocalStrategy(
    User.getUserByUsername(username, function(err, user){
    	if(err) throw err;
    	if(!user){
+			console.log('')
    		return done(null, false, {message: 'Unknown User'});
    	}
 
@@ -69,6 +71,7 @@ passport.use(new LocalStrategy(
    		if(isMatch){
    			return done(null, user);
    		} else {
+				console.log('not you');
    			return done(null, false, {message: 'Invalid password'});
    		}
    	});
@@ -86,7 +89,11 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+  passport.authenticate('local', {
+		successRedirect:'/',
+		failureRedirect:'/users/login',
+		failureFlash: true
+	}),
   function(req, res) {
     res.redirect('/');
   });
