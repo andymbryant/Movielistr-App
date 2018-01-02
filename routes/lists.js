@@ -28,6 +28,7 @@ router.post('/', ensureAuthenticated, function(req, res) {
       });
       return Promise.all(movieQueries);
     }).then(function(movie) {
+      console.log(movie);
       res.render('movie-list', {
         movie,
         listID,
@@ -62,6 +63,7 @@ router.post('/new-movie', ensureAuthenticated, (req, res) => {
       rotten: req.body['data[Ratings][1][Value]'],
       imdb: req.body['data[Ratings][0][Value]'],
       poster: req.body['data[Poster]'],
+      director: req.body['data[Director]'],
       id: req.body['data[imdbID]']
     });
 
@@ -77,7 +79,7 @@ router.post('/new-movie', ensureAuthenticated, (req, res) => {
       console.log(err);
     }
   );
-}); 
+});
 
 router.get('/new-list', ensureAuthenticated, (req, res) => {
   let userID = req.user._id;

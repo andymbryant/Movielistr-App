@@ -17,7 +17,7 @@ var app = express();
 mongoose.connect('mongodb://localhost/recoMovie');
 var db = mongoose.connection;
 
-
+ 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var lists = require('./routes/lists');
@@ -84,7 +84,7 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
- 
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/lists', lists);

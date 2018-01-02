@@ -10,13 +10,28 @@ $(function() {
     let data = {"movieID": id, "listID": listID};
       $.ajax({
         type: "POST",
-        url: 'http://localhost:3000/remove/movie',
+        url: 'remove/movie',
         data: data,
         dataType: 'json',
         success: console.log('The ajax call posted')
       })
       $(this).closest('li').remove();
     });
+
+    $(document).on('click', '.remove-list', function(e) {
+      e.preventDefault();
+      let listID = $(this).data('value');
+
+      let data = {"listID": listID};
+        $.ajax({
+          type: "POST",
+          url: 'remove/list',
+          data: data,
+          dataType: 'json',
+          success: console.log('The ajax call posted')
+        })
+        $(this).closest('li').remove();
+      });
 
 
   $('.list-title').on('change', function(e) {
@@ -26,7 +41,7 @@ $(function() {
     let data = {"listID": listID, "newTitle": newTitle}
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3000/lists/update-title',
+      url: 'lists/update-title',
       data: data,
       dataType: 'json',
       success: console.log('The title was updated')
@@ -51,7 +66,7 @@ $(function() {
             success: (data) => {
               $.ajax({
                 type: "POST",
-                url: 'http://localhost:3000/lists/new-movie',
+                url: 'lists/new-movie',
                 data: {data:data, listID:listID},
                 dataType: 'json',
                 success: console.log('This worked abcdef')
@@ -80,13 +95,13 @@ $(function() {
                     <div class="director">
                       <p><span class="director-label">Director:</span> ${data.Director}</p>
                     </div>
-                    <img class="delete" src="/images/delete.png" data-value="${data.imdbID}">
+                    <span class="svg-color delete" data-value="${data.imdbID}"><svg class="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/></svg></span>
                   </div>
                 </li>`
               );
             }
           });
-          $('#add-movie').val('');
+          $('.add-movie').val('');
         });
 
 $('.new-list-form').on('submit', function(e) {
@@ -94,7 +109,7 @@ $('.new-list-form').on('submit', function(e) {
 
   $.ajax({
     type: "GET",
-    url: 'http://localhost:3000/lists/new-list',
+    url: 'lists/new-list',
     success: (data) => {
       $('#list-of-lists').append(
         `<li>
@@ -102,7 +117,11 @@ $('.new-list-form').on('submit', function(e) {
               <h1>New List</h1>
               <form action="/lists" method="post">
                   <input class="none" type="text" name="listID" value="${data}">
-                  <button type="submit" value="hello">Open List</button>
+                  <button type="submit" value="hello">View/Edit</button>
+              </form>
+              <form action="/lists/remove" method="post">
+                  <input class="none" type="text" name="listID" value="${data}">
+                  <button class="remove-list" type="submit" value="hello">Delete</button>
               </form>
           </div>
         </li>`
@@ -113,12 +132,17 @@ $('.new-list-form').on('submit', function(e) {
 
 $('#exit-list').on('submit', function(e) {
   e.preventDefault();
+  window.location.replace('/');
+})
 
-  window.history.back();
+$('.logout-form').on('submit', function(e) {
+  e.preventDefault();
 
-  // $.ajax({
-  //   type: "GET",
-  //   url: 'http://localhost:3000/back',
-  //   success: console.log('We went back')
-  // })
+  $.ajax({
+    type: "GET",
+    url: 'users/logout',
+    success: data => {
+       window.location = data
+    }
+  })
 })

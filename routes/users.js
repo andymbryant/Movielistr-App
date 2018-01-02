@@ -48,7 +48,6 @@ router.post('/register', function(req, res){
 
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
-			console.log(user);
 		});
 
 		req.flash('success_msg', 'You are registered and can now login');
@@ -62,7 +61,6 @@ passport.use(new LocalStrategy(
    User.getUserByUsername(username, function(err, user){
    	if(err) throw err;
    	if(!user){
-			console.log('')
    		return done(null, false, {message: 'Unknown User'});
    	}
 
@@ -99,11 +97,12 @@ router.post('/login',
   });
 
 router.get('/logout', function(req, res){
-	req.logout();
-
-	req.flash('success_msg', 'You are logged out');
-
-	res.redirect('/users/login');
+	req.session.destroy(function (err) {
+		res.contentType('application/json');
+		var data = JSON.stringify('http://localhost:3000/users/login')
+		res.header('Content-Length', data.length);
+		res.end(data);
+  });
 });
 
 module.exports = router;

@@ -7,11 +7,11 @@
 }
 
 body {
-  background: #FF5733;
+  background: #e4e4e4;
 }
 
 .app-title {
-  color: #999;
+  color: #666;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 50px;
@@ -30,8 +30,8 @@ body {
 .login-form {
   width: 350px;
   padding: 40px 30px;
-  background: #eee;
-  border-radius: 4px;
+  background: white;
+  border-radius: 2px;
   margin: auto;
   position: absolute;
   left: 0;
@@ -39,6 +39,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .login-form p {
@@ -58,10 +59,9 @@ body {
   height: 50px;
   border: none;
   padding: 5px 7px 5px 15px;
-  background: #fff;
+  background: #e4e4e4;
   color: #666;
-  border: 2px solid #ddd;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 input:focus {
@@ -74,15 +74,53 @@ button:focus {
 
 form {
   text-align: center;
+  display: inline;
+}
+
+.remove-list {
+  background-color: #FF5733;
 }
 
 button {
   outline: none;
   border: none;
   background-color: #00B270;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: .5rem;
   color: white;
+}
+
+.logout-form {
+  position: relative;
+  display: inline;
+}
+
+.logout-button {
+  background-color: #FF5733;
+}
+
+.svg {
+  fill: #FF5733;
+  position: relative;
+  right: 0rem;
+  top: 1.5rem;
+  display: inline;
+}
+
+.add-movie {
+  padding: .5rem;
+  border: none;
+  width: 50%;
+  margin: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.back-button {
+  font-size: 1rem;
+}
+
+#exit-list {
+  float: right;
 }
 
 #new-list-button {
@@ -92,7 +130,7 @@ button {
 }
 
 .log-btn {
-  background: #00B270;
+  background: #FF5733;
   display: inline-block;
   width: 100%;
   font-size: 16px;
@@ -105,7 +143,7 @@ button {
 
 .link {
   text-decoration: none;
-  color: #C6C6C6;
+  color: #bbb;
   float: right;
   font-size: 12px;
   margin-bottom: 15px;
@@ -160,13 +198,37 @@ ol {
 }
 
 .dash-wrapper {
-  width: 67%;
+  width: 50%;
+  margin: 3rem auto 0;
+
+}
+
+.movie-wrapper {
+  width: 75%;
   margin: auto;
+  margin-top: 3rem;
+}
+
+.page-header {
+  margin-bottom: .3rem;
+  color: #666;
+}
+
+.subheader {
+  color: #999;
 }
 
 #movies {
   list-style-type: none;
   padding: 0;
+}
+
+.list-title {
+  background-color: #e4e4e4;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  font-family: 'Roboto', sans-serif;
 }
 .card {
   border-radius: 2px;
@@ -174,7 +236,7 @@ ol {
   padding: .5rem 2rem;
   display: block;
   min-width: 320px;
-  width: 67%;
+  width: 100%;
   max-width: 1200px;
   margin: 1rem auto 0;
   background-color: white;
@@ -183,13 +245,17 @@ ol {
 .list-card {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  padding: .5rem 2rem;
   display: block;
   min-width: 320px;
+  padding: 1rem;
   width: 100%;
   margin: 1rem 0 0 0;
   background-color: white;
   text-align: center;
+}
+
+.list-card-title {
+  margin: 0 0 .5rem 0;
 }
 
 .movie-title {
@@ -253,6 +319,15 @@ ol {
   float: right;
   top: -45px;
   right: -27px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0px 9999px white;
+}
+
+input:focus,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: inset 0 0 0px 9999px white,
 }
 
 @media only screen and (max-width: 900px) {

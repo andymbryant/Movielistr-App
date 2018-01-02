@@ -16,8 +16,6 @@ var db = mongoose.connection;
 router.post('/movie', function(req, res) {
   let deleteID = req.body.movieID;
   let listID = req.body.listID;
-  console.log(deleteID);
-  console.log(listID)
   Movie.remove({"id": deleteID}, function(err) {
     if (!err) {
       console.log('it worked!');
@@ -32,6 +30,16 @@ router.post('/movie', function(req, res) {
       console.log(err);
     }
   );
+})
+
+router.post('/list', function(req, res) {
+  let listID = req.body.listID;
+  console.log(listID);
+  List.remove({"_id": listID}, function(err) {
+    if (!err) {
+      console.log('it worked!');
+    }
+  });
 })
 
 module.exports = router;

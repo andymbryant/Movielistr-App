@@ -10,7 +10,9 @@ let movieSchema = mongoose.Schema({
   rotten: String,
   imdb: String,
   poster: String,
+  director: String,
   id: String
+
   // userName: String,
 });
 
