@@ -114,9 +114,11 @@ $('.new-list-form').on('submit', function(e) {
 $('#exit-list').on('submit', function(e) {
   e.preventDefault();
 
-  $.ajax({
-    type: "GET",
-    url: 'http://localhost:3000/back',
-    success: console.log('We went back')
-  })
+  window.history.back();
+
+  // $.ajax({
+  //   type: "GET",
+  //   url: 'http://localhost:3000/back',
+  //   success: console.log('We went back')
+  // })
 })
