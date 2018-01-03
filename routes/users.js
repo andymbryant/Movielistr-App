@@ -61,7 +61,7 @@ passport.use(new LocalStrategy(
         User.getUserByUsername(username, function(err, user){
    	        if(err) throw err;
    	        if(!user){
-   		        return done(null, false, {message: 'Unknown User'});
+   		        return done(null, false, {message: 'Unknown User CheckUpdate'});
 	        }
 
 	   	User.comparePassword(password, user.password, function(err, isMatch){
