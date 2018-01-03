@@ -14,32 +14,31 @@ mongoose.connect('mongodb://localhost/recoMovie');
 var db = mongoose.connection;
 
 router.post('/movie', function(req, res) {
-  let deleteID = req.body.movieID;
-  let listID = req.body.listID;
-  Movie.remove({"id": deleteID}, function(err) {
-    if (!err) {
-      console.log('it worked!');
-    }
-  });
+    let deleteID = req.body.movieID;
+    let listID = req.body.listID;
+    Movie.remove({"id": deleteID}, function(err) {
+        if (!err) {
+            console.log('it worked!');
+        }
+    });
 
-  List.findByIdAndUpdate(
-    ObjectId(listID),
-    { $pull: {movies: req.body.movieID }},
-    {multi: true},
-    function(err, model) {
-      console.log(err);
-    }
-  );
+    List.findByIdAndUpdate(
+        ObjectId(listID),
+        { $pull: {movies: req.body.movieID }},
+        {multi: true},
+        function(err, model) {
+            console.log(err);
+        }
+    );
 })
 
 router.post('/list', function(req, res) {
-  let listID = req.body.listID;
-  console.log(listID);
-  List.remove({"_id": listID}, function(err) {
-    if (!err) {
-      console.log('it worked!');
-    }
-  });
+    let listID = req.body.listID;
+    List.remove({"_id": listID}, function(err) {
+        if (!err) {
+            console.log('it worked!');
+        }
+    });
 })
 
 module.exports = router;

@@ -8,6 +8,7 @@ let List = require('../models/list')
 
 mongoose.connect('mongodb://localhost/recoMovie');
 var db = mongoose.connection;
+
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
 	let listFound = [];

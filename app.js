@@ -17,7 +17,7 @@ var app = express();
 mongoose.connect('mongodb://localhost/recoMovie');
 var db = mongoose.connection;
 
- 
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var lists = require('./routes/lists');
@@ -25,7 +25,7 @@ var remove = require('./routes/remove');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('Mongoose is connected');
+    console.log('Mongoose is connected');
 });
 
 mongoose.Promise = global.Promise;
@@ -72,17 +72,17 @@ app.use(flash());
 
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
-  next();
+    res.locals.messages = require('express-messages')(req, res);
+    next();
 });
 
 // Global Vars
 app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
+    next();
 });
 
 app.use('/', routes);
@@ -93,5 +93,5 @@ app.use('/remove', remove);
 app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function(){
-	console.log('Server started on port '+app.get('port'));
+    console.log('Server started on port '+app.get('port'));
 });
