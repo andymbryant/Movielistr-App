@@ -14,7 +14,10 @@ const mongoose = require('mongoose');
 var app = express();
 
 //mongoose
-mongoose.connect('mongodb://localhost/recoMovie');
+
+// mongoose.connect('mongodb://localhost/recoMovie');
+
+mongoose.connect('mongodb://heroku_n1ncd624:7ngrcj5fiib8c94e4dim03n8nj@ds229295.mlab.com:29295/heroku_n1ncd624')
 var db = mongoose.connection;
 
 

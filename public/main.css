@@ -516,7 +516,12 @@ input:-webkit-autofill:focus {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) {
 
-  .login-form, .register-form {
+  .login-form, {
+    width: 80%;
+    height: 500px;
+  }
+
+  .register-form {
     width: 60%;
     height: 520px;
   }
@@ -548,11 +553,6 @@ input:-webkit-autofill:focus {
 
   .dash-wrapper {
     width: 90%;
-    /* position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%); */
   }
 
   .page-header {
