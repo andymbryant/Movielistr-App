@@ -509,3 +509,128 @@ input:-webkit-autofill:focus {
   }
 
 }
+
+@media only screen
+  and (min-device-width: 275px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+  .login-form, .register-form {
+    width: 60%;
+    height: 520px;
+  }
+
+  .app-title {
+    font-size: 3rem;
+  }
+
+  .app-description {
+    font-size: 1.5rem;
+  }
+
+  .form-control, .log-btn {
+    font-size: 1.5rem;
+    height: 3rem;
+  }
+
+  .link {
+    font-size: 1.5rem;
+  }
+
+  .register-description {
+    font-size: 1rem;
+  }
+
+  .info-description {
+    font-size: 1rem;
+  }
+
+  .dash-wrapper {
+    width: 90%;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); */
+  }
+
+  .page-header {
+      font-size: 3rem;
+  }
+
+  .logout-button {
+      font-size: 1rem;
+  }
+
+  .subheader {
+      font-size: 1.5rem;
+  }
+
+  .list-card {
+      height: 110px;
+  }
+
+  .list-card-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+  }
+
+  .edit-list, .remove-list {
+      font-size: 1rem;
+  }
+
+  .new-list-button {
+      font-size: 1.5rem;
+      width: 100%;
+  }
+
+  .movie-wrapper {
+      width: 90%;
+  }
+
+  .list-title {
+      font-size: 3rem;
+  }
+
+  .exit-list {
+      float: none;
+      display: block;
+      margin-top: 1rem;
+  }
+
+  .back-button {
+      padding: .5rem;
+      font-size: 1.5rem;
+      width: 100%;
+      padding: 1rem;
+  }
+
+  .card {
+      margin: 1.5rem 0;
+  }
+
+  .card p {
+      font-size: .8rem;
+      margin: 1.5rem 0
+  }
+
+  .input-form {
+      text-align: center;
+      margin: auto;
+  }
+
+  .add-movie {
+      width: 78%;
+      font-size: 2rem;
+      height: 4rem;
+  }
+
+  .add-movie-button {
+      margin-top: 1rem;
+      font-size: 2rem;
+      height: 4rem;
+      float: right;
+      padding: 1rem;
+  }
+}
