@@ -268,7 +268,6 @@ ol {
   display: block;
   min-width: 320px;
   width: 100%;
-  max-width: 1200px;
   margin: 1rem auto 0;
   background-color: white;
 }
@@ -339,7 +338,7 @@ ol {
 .poster {
   position: relative;
   margin: auto;
-  height: 245px;
+  height: 225px;
   top: 20px;
   vertical-align: middle;
   float: right;
@@ -465,6 +464,7 @@ input:-webkit-autofill:focus {
 
   .list-title {
       font-size: 5rem;
+      width: 500px;
   }
 
   .exit-list {
