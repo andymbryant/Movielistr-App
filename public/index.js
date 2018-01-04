@@ -57,7 +57,7 @@ $(function() {
         const movieString = $('[name=imdb-url]').val();
         const id = movieString.substring(26, 35);
         const apiKey = '&apikey=36a0bcd3';
-        const baseUrl = 'http://www.omdbapi.com/?i=';
+        const baseUrl = 'https://www.omdbapi.com/?i=';
         const finalUrl = baseUrl + id + apiKey;
 
         $.ajax({
