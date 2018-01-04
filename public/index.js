@@ -13,8 +13,7 @@ $(function() {
             type: "POST",
             url: 'remove/movie',
             data: data,
-            dataType: 'json',
-            success: console.log('The ajax call posted')
+            dataType: 'json'
         });
 
         $(this).closest('li').remove();
@@ -29,8 +28,7 @@ $(function() {
             type: "POST",
             url: 'remove/list',
             data: data,
-            dataType: 'json',
-            success: console.log('The ajax call posted')
+            dataType: 'json'
         });
 
         $(this).closest('li').remove();
@@ -45,8 +43,7 @@ $(function() {
             type: "POST",
             url: 'lists/update-title',
             data: data,
-            dataType: 'json',
-            success: console.log('The title was updated')
+            dataType: 'json'
         });
     })
 });
@@ -69,8 +66,7 @@ $(function() {
                     type: "POST",
                     url: 'lists/new-movie',
                     data: {data:data, listID:listID},
-                    dataType: 'json',
-                    success: console.log('This worked abcdef')
+                    dataType: 'json'
                 });
 
             $('#movies').append(
