@@ -12,16 +12,6 @@ $(function() {
         $('.subheader').text('This is your dashboard. All of your lists will appear here. Get started by creating a new list.');
     }
 
-    $('.new-list-button').on('click', function() {
-        $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list with the button below.');
-    })
-
-    $('.remove-list').on('click', function() {
-        if ($(this).is(':only-child')) {
-            location.reload();
-        }
-    })
-
     $('input[type="text"]')
         // event handler
         .keyup(resizeInput)
@@ -30,10 +20,17 @@ $(function() {
 
     $(".list-title").before("<label for='list-title' class='title-element'>&nbspedit</label>");
 
-    $(".list-card-click").on("click",function(e) {
+
+    // $(".list-card-click").on("click",function(e) {
+    //     var form = $(this).closest("form");
+    //     form.submit();
+    // });
+
+    $(".edit-list").on("click",function(e) {
         var form = $(this).closest("form");
         form.submit();
     });
+
     //Remove closest movie from DOM
     $(document).on('click', '.delete', function() {
         let listID = $('.list-id').val();
@@ -52,17 +49,22 @@ $(function() {
     });
 
     //Remove closest list from DOM
-    $(document).on('click', '.remove-list', function(e) {
+    $("body").on('click', '.remove-list', function(e) {
         e.preventDefault();
         let listID = $(this).data('value');
         let data = {"listID": listID};
-
+        console.log(listID);
         //Make call to remove list from datbase
         $.ajax({
             type: "POST",
             url: 'remove/list',
             data: data,
-            dataType: 'json'
+            dataType: 'json',
+            success: function(data){
+               if(data.success == true) {
+                    location.reload();
+               }
+            }
         });
 
         $(this).closest('li').remove();
@@ -92,7 +94,6 @@ $(function() {
             dataType: 'json'
         });
     })
-});
 
     // Take IMDB URL input and subdmit it to Server
     // Get returned data and use it to add filled card to DOM
@@ -151,6 +152,12 @@ $(function() {
         });
 
     // Add new list to DOM, send to server to add to database
+
+    // $(".new-list-button").on("click",function(e) {
+    //     let form = $(this).closest("form");
+    //     form.submit();
+    // });
+
     $('.new-list-form').on('submit', function(e) {
         e.preventDefault();
 
@@ -175,6 +182,7 @@ $(function() {
                 )
             }
         });
+        $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list.');
     })
 
 //Back button for list
@@ -195,3 +203,5 @@ $('.logout-form').on('submit', function(e) {
         }
   })
 })
+
+});
