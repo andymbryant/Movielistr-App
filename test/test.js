@@ -18,3 +18,9 @@ describe('Recomovie', function() {
     });
   });
 });
+
+//login
+//CRUD
+//Do not do register
+
+//Do not spend more than two hours creating test cases 

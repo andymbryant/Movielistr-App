@@ -10,26 +10,25 @@ body {
   background: #e4e4e4;
 }
 
-.app-title {
-  color: #666;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 50px;
-  margin: .5rem 0 1rem 0;
+.splash-page, .register-page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("images/1.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.app-description {
-  color: #bbb;
-  font-weight: 400;
-  text-align: center;
-  font-style: italic;
-  font-size: 1rem;
-  margin: 0 0 2rem 0;
-}
-
-.login-form {
-  width: 350px;
-  padding: 40px 30px;
+.splash-form {
+  height: 375px;
+  width: 750px;
+  padding: 30px 30px;
   background: white;
   border-radius: 2px;
   margin: auto;
@@ -40,6 +39,86 @@ body {
   transform: translateY(-50%);
   text-align: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.app-title {
+  color: #666;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 50px;
+  margin: 0;
+}
+
+.app-slogan {
+  color: #999;
+  font-weight: 300;
+  text-align: center;
+  font-style: italic;
+  font-size: .8rem;
+  margin: 0 0 1rem 0;
+}
+
+.app-description {
+  color: #999;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1rem;
+  margin: 2.5rem auto;
+  width: 90%;
+}
+
+.register-link {
+  text-align: center;
+}
+
+.register-link2 {
+  display: none;
+}
+
+.login-par {
+  margin: 1rem auto;
+  color: #666;
+  font-size: .8rem;
+}
+
+.app-description li {
+  margin: 0 0 1rem .5rem;
+}
+
+.splash-info {
+  width: 300px;
+  border-radius: 2px;
+  text-align: center;
+  float: left;
+  display: inline;
+}
+
+.login-form {
+  width: 300px;
+  border-radius: 2px;
+  text-align: center;
+  float: right;
+  display: inline-block;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line {
+  border: .5px lightgrey dashed;
+  height: 70%;
+  display: inline-block;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line2 {
+  display: none;
 }
 
 .register-form p {
@@ -64,13 +143,6 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.login-form p {
-  float: left;
-  display: inline;
-  color: #666;
-  margin: 1rem 0 0 0;
-}
-
 .form-group {
   position: relative;
   margin-bottom: 15px;
@@ -81,7 +153,7 @@ body {
   height: 50px;
   border: none;
   padding: 5px 7px 5px 15px;
-  background: #e4e4e4;
+  background: #f1f1f1;
   color: #666;
   border-radius: 2px;
 }
@@ -152,8 +224,6 @@ button {
   background-color: #FF5733;
 }
 
-
-
 .new-list-button {
   width: 200px;
   font-size: 1.4rem;
@@ -170,19 +240,18 @@ button {
   text-decoration: none;
   border: none;
   border-radius: 4px;
+  margin-top: 1.3rem;
 }
 
 .link {
   text-decoration: none;
-  color: #bbb;
-  float: right;
-  font-size: 12px;
-  margin-bottom: 15px;
+  color: #FF5733;
+  font-size: 1rem;
 }
 
 .link:hover {
   text-decoration: underline;
-  color: #8C918F;
+  color: #666;
 }
 
 .alert {
@@ -262,6 +331,7 @@ ol {
   font-family: 'Roboto', sans-serif;
   width: 500px;
 }
+
 .card {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -376,24 +446,260 @@ input:-webkit-autofill:focus {
   }
 }
 
+@media (max-width: 800px) {
+
+    .splash-form {
+      height: 685px;
+      width: 55%;
+      min-width: 375px;
+    }
+
+    .app-title {
+      text-align: center;
+      margin: auto;
+      margin-bottom: 0;
+      font-size: 3rem ;
+    }
+
+    .app-description li {
+      margin: 0 .5rem 1rem .5rem;
+    }
+
+    .splash-info {
+      margin: auto;
+      float: none;
+      width: 90%;
+      display: block;
+    }
+
+    .app-description {
+      font-size: 1rem;
+      margin: 2rem auto 3rem;
+      width: 90%;
+    }
+
+    .app-slogan {
+      font-size: .8em;
+    }
+
+    .line {
+      display: none;
+    }
+
+    .line2 {
+      border: .5px lightgrey dashed;
+      width: 70%;
+      margin: auto;
+      display: block;
+    }
+
+    .login-form {
+      width: 90%;
+      float: none;
+      display: block;
+      position: relative;
+      margin: auto;
+      top: 160px;
+    }
+
+    .register-link2 {
+      display: block;
+    }
+
+    .link {
+      font-size: 1rem;
+    }
+
+    .login-par {
+      font-size: 1rem;
+    }
+
+    .form-control, .log-btn {
+      font-size: 1rem;
+      height: 3rem;
+      margin: 0;
+      width: 90%;
+    }
+
+    .log-btn {
+      margin-bottom: 2rem;
+    }
+
+    .register-link {
+      display: none;
+    }
+
+    .register-link2 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .register-form {
+      height: 1280px;
+      width: 80%;
+      padding: 60px;
+    }
+
+    .register-description {
+      font-size: 2.5rem;
+    }
+
+    .info-description {
+      font-size: 2rem;
+    }
+
+    .dash-wrapper {
+      width: 90%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .page-header {
+        font-size: 6rem;
+    }
+
+    .logout-button {
+        font-size: 2.5rem;
+    }
+
+    .subheader {
+        font-size: 2rem;
+    }
+
+    .list-card {
+        height: 200px;
+    }
+
+    .list-card-title {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .edit-list, .remove-list {
+        font-size: 2.5rem;
+    }
+
+    .new-list-button {
+        font-size: 2.5rem;
+        width: 100%;
+        height: 100px;
+    }
+
+    .movie-wrapper {
+        width: 90%;
+    }
+
+    .list-title {
+        font-size: 5rem;
+        width: 500px;
+    }
+
+    .exit-list {
+        float: none;
+        display: block;
+        margin-top: 3rem;
+    }
+
+    .back-button {
+        padding: .5rem;
+        font-size: 2.5rem;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .card {
+        margin: 2rem 0;
+    }
+
+    .card p {
+        font-size: .7rem;
+        margin: 1.5rem 0
+    }
+
+    .input-form {
+        text-align: center;
+        margin: auto;
+    }
+
+    .add-movie {
+        width: 78%;
+        font-size: 2rem;
+        height: 5rem;
+    }
+
+    .add-movie-button {
+        margin-top: 1rem;
+        font-size: 2rem;
+        height: 5rem;
+        float: right;
+        padding: 1rem;
+    }
+}
+
 @media only screen
   and (min-device-width: 275px)
   and (max-device-width: 667px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
 
-  .login-form {
-    width: 80%;
-    height: 850px;
-    position: absolute;
+  .splash-form {
+    height: 80%;
+    margin-bottom: 5rem;
+    padding-top: 6rem;
   }
 
   .app-title {
-    font-size: 7rem;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  .splash-info {
+    margin: auto;
+    float: none;
+    width: 90%;
+    display: block;
   }
 
   .app-description {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    width: 80%;
+  }
+
+  .app-slogan {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .line2 {
+    border: .5px lightgrey dashed;
+    width: 70%;
+    margin: auto;
+    display: block;
+  }
+
+  .login-form {
+    width: 90%;
+    float: none;
+    display: block;
+    position: relative;
+    margin: auto;
+    top: 350px;
+  }
+
+  .login-par {
+    font-size: 2rem;
+  }
+  .app-title {
+    font-size: 7rem;
   }
 
   .form-control, .log-btn {
@@ -402,13 +708,28 @@ input:-webkit-autofill:focus {
     margin: 1rem 0;
   }
 
+  .log-btn {
+    margin-bottom: 4rem;
+  }
+
   .link {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .register-link {
+    display: none;
+  }
+
+  .register-link2 {
+    display: block;
+    margin: 0;
+    font-size: 1rem;
   }
 
   .register-form {
-    height: 1200px;
+    height: 1280px;
     width: 80%;
+    padding: 60px;
   }
 
   .register-description {
@@ -517,35 +838,74 @@ input:-webkit-autofill:focus {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) {
 
-  .login-form, {
-    width: 80%;
-    height: 500px;
+  .splash-form {
+    height: 450px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .register-page {
+    height: 900px;
+  }
+
+  .login-form {
+    width: 40%;
+  }
+
+  .splash-info {
+    width: 40%;
+  }
+
+  .app-title {
+    font-size: 2.5rem;
+  }
+
+  .app-description {
+    font-size: 1.2rem;
+    width: 90%;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control, .log-btn {
+    font-size: 1.3rem;
+    height: 4rem;
+  }
+
+  .login-par {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .register-link {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .register-link2 {
+    display: none;
+  }
+
+  .register-description {
+    font-size: 1.5rem;
   }
 
   .register-form {
     width: 60%;
-    height: 520px;
-  }
-
-  .app-title {
-    font-size: 3rem;
-  }
-
-  .app-description {
-    font-size: 1.5rem;
-  }
-
-  .form-control, .log-btn {
-    font-size: 1.5rem;
-    height: 3rem;
-  }
-
-  .link {
-    font-size: 1.5rem;
-  }
-
-  .register-description {
-    font-size: 1rem;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 2px;
+    margin: auto;
+    height: 800px;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 5%;
+    transform: translateY(0%);
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   }
 
   .info-description {
@@ -633,5 +993,9 @@ input:-webkit-autofill:focus {
       height: 4rem;
       float: right;
       padding: 1rem;
+  }
+
+  .line2 {
+    display: none;
   }
 }

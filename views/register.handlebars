@@ -4,30 +4,32 @@
       {{/each}}
 {{/if}}
 
-<div class="register-form">
-    <h3 class="register-description">Register now and start recommending movies right away. <span class="free">Free Forever.</span></h3>
-    <form method="post" action="/users/register">
-      <div class="form-group ">
-          <input type="text" class="form-control" name="name" placeholder="First Name" id="Name">
-          <i class="fa fa-user"></i>
-      </div>
-        <div class="form-group ">
-            <input type="text" class="form-control" name="username" placeholder="Username" id="UserName">
-            <i class="fa fa-user"></i>
-        </div>
-        <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email" id="email">
-            <i class="fa fa-user"></i>
-        </div>
-        <div class="form-group log-status">
-            <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
-            <i class="fa fa-lock"></i>
-        </div>
-        <div class="form-group log-status">
-            <input type="password" class="form-control" name="password2" placeholder="Confirm Password" id="Password2">
-            <i class="fa fa-lock"></i>
-        </div>
-        <h3 class="info-description">We will never share your information with anyone.</h3>
-        <button type="submit" class="btn log-btn btn-default">Register</button>
-    </form>
+<div class="register-page">
+    <div class="register-form">
+        <h3 class="register-description">Register now and start building movie lists right away. <span class="free">Free Forever.</span></h3>
+        <form method="post" action="/users/register">
+          <div class="form-group ">
+              <input type="text" class="form-control" name="name" placeholder="First Name" id="Name">
+              <i class="fa fa-user"></i>
+          </div>
+            <div class="form-group ">
+                <input type="text" class="form-control" name="username" placeholder="Username" id="UserName">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" id="email">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="form-group log-status">
+                <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
+                <i class="fa fa-lock"></i>
+            </div>
+            <div class="form-group log-status">
+                <input type="password" class="form-control" name="password2" placeholder="Confirm Password" id="Password2">
+                <i class="fa fa-lock"></i>
+            </div>
+            <h3 class="info-description">We will never share your information with anyone.</h3>
+            <button type="submit" class="btn log-btn btn-default">Register</button>
+        </form>
+     </div>
  </div>
