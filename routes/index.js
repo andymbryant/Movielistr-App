@@ -15,16 +15,12 @@ router.get('/', ensureAuthenticated, function(req, res){
 	let firstName = req.user.name;
 	let userID = req.user._id;
 	List.find({"userID": userID}, function(err, lists) {
-		if (lists) {
-			listFound.push(lists);
-		}
 		res.render('dashboard', {
-			lists,
-			firstName,
-			listFound,
-		});
+				lists,
+				firstName,
+			});
+		})
 	});
-});
 
 // Standard EnsureAuthenticated Function
 function ensureAuthenticated(req, res, next){

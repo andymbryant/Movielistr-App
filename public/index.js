@@ -4,6 +4,24 @@ $(function() {
         $(this).attr('size', $(this).val().length-1);
     }
 
+    if ($('#list-of-lists').has("li").length >= 1) {
+        $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list.');
+    }
+
+    if ($('#list-of-lists').has("li").length == 0) {
+        $('.subheader').text('This is your dashboard. All of your lists will appear here. Get started by creating a new list.');
+    }
+
+    $('.new-list-button').on('click', function() {
+        $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list with the button below.');
+    })
+
+    $('.remove-list').on('click', function() {
+        if ($(this).is(':only-child')) {
+            location.reload();
+        }
+    })
+
     $('input[type="text"]')
         // event handler
         .keyup(resizeInput)

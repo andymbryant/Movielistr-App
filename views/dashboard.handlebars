@@ -5,14 +5,8 @@
                 <form class="logout-form" action="/logout" method="get">
                     <button id="logout-button" class="logout-button" type="submit" value="hello">Logout</button>
                 </form>
+            <p class="subheader"></p>
 
-            {{#listFound}}
-                <p class="subheader">Select from below to view and edit your lists. Or you can create a new list.</p>
-            {{/listFound}}
-
-            {{^listFound}}
-                <p>Create a new list to get started.</p>
-            {{/listFound}}
         </div>
 
         <div class="dash-body">
