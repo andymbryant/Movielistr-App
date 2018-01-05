@@ -6,7 +6,7 @@ RecoMovie
 
 It's easy to get started! Just register a new account, log in, create a new list, and start adding movies!
 
-# Project Summary
+## Project Summary
 
 I built this using Node and jQuery for the Thinkful Back-end Capstone project.
 
