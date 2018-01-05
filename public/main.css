@@ -255,10 +255,10 @@ button {
 }
 
 .alert {
-  display: block;
+  display: inline;
   font-size: 12px;
-  color: #f00;
-  float: left;
+  color: #FF5733;
+  text-align: center;
 }
 
 .register-description {
@@ -828,6 +828,10 @@ input:-webkit-autofill:focus {
       height: 5rem;
       float: right;
       padding: 1rem;
+  }
+
+  .alert {
+    font-size: 1.5rem;
   }
 
 }

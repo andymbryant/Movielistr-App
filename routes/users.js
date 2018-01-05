@@ -63,7 +63,7 @@ passport.use(new LocalStrategy(
         User.getUserByUsername(username, function(err, user){
    	        if(err) throw err;
    	        if(!user){
-   		        return done(null, false, {message: 'Unknown User. Please try again or create an account.'});
+   		        return done(null, false, {message: 'Invalid credentials. Please try again.'});
 	        }
 
 	   	User.comparePassword(password, user.password, function(err, isMatch){
@@ -72,7 +72,7 @@ passport.use(new LocalStrategy(
 	   			return done(null, user);
 	   		} else {
 				console.log('not you');
-	   			return done(null, false, {message: 'Invalid password. Please try again or create an account'});
+	   			return done(null, false, {message: 'Invalid credentials. Please try again.'});
 	   		}
 	    });
 	});
