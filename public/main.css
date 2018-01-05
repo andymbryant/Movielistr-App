@@ -171,6 +171,22 @@ form {
   display: inline;
 }
 
+/* .dashboard-background {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("images/7.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+
 .remove-list {
   background-color: #FF5733;
 }
@@ -298,9 +314,8 @@ ol {
 }
 
 .dash-wrapper {
-  width: 50%;
+  width: 70%;
   margin: 3rem auto 0;
-
 }
 
 .movie-wrapper {
@@ -329,7 +344,10 @@ ol {
   font-size: 2rem;
   color: #666;
   font-family: 'Roboto', sans-serif;
-  width: 500px;
+}
+
+.list-title::after {
+  content: 'edit';
 }
 
 .card {
@@ -431,15 +449,23 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: inset 0 0 0px 9999px white,
 }
 
+.title-element {
+  display: inline;
+  position: absolute;
+  font-size: 10px;
+  top: 9.5%;
+  color: #FF5733;
+}
+
 @media only screen and (max-width: 900px) {
   .poster {
-    height: 170px;
+    height: 150px;
   }
 }
 
 @media only screen and (max-width: 620px) {
   .poster {
-    height: 120px;
+    height: 110px;
   }
   .plot {
     max-width: 90%;
@@ -549,94 +575,13 @@ input:-webkit-autofill:focus {
     }
 
     .dash-wrapper {
-      width: 90%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .page-header {
-        font-size: 6rem;
-    }
-
-    .logout-button {
-        font-size: 2.5rem;
-    }
-
-    .subheader {
-        font-size: 2rem;
-    }
-
-    .list-card {
-        height: 200px;
-    }
-
-    .list-card-title {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .edit-list, .remove-list {
-        font-size: 2.5rem;
-    }
-
-    .new-list-button {
-        font-size: 2.5rem;
-        width: 100%;
-        height: 100px;
+      min-width: 400px;
     }
 
     .movie-wrapper {
-        width: 90%;
+      min-width: 400px;
     }
 
-    .list-title {
-        font-size: 5rem;
-        width: 500px;
-    }
-
-    .exit-list {
-        float: none;
-        display: block;
-        margin-top: 3rem;
-    }
-
-    .back-button {
-        padding: .5rem;
-        font-size: 2.5rem;
-        width: 100%;
-        padding: 1rem;
-    }
-
-    .card {
-        margin: 2rem 0;
-    }
-
-    .card p {
-        font-size: .7rem;
-        margin: 1.5rem 0
-    }
-
-    .input-form {
-        text-align: center;
-        margin: auto;
-    }
-
-    .add-movie {
-        width: 78%;
-        font-size: 2rem;
-        height: 5rem;
-    }
-
-    .add-movie-button {
-        margin-top: 1rem;
-        font-size: 2rem;
-        height: 5rem;
-        float: right;
-        padding: 1rem;
-    }
 }
 
 @media only screen
@@ -740,13 +685,21 @@ input:-webkit-autofill:focus {
     font-size: 2rem;
   }
 
-  .dash-wrapper {
-    width: 90%;
-    position: absolute;
+  .dash-title {
+    margin-bottom: 15%;
+  }
+
+  .dash-body {
+    width: 100%;
+    position: relative;
     left: 0;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    margin: auto;
+  }
+
+  .dash-wrapper {
+    height: 1000px;
+    width: 90%;
   }
 
   .page-header {
@@ -782,11 +735,12 @@ input:-webkit-autofill:focus {
 
   .movie-wrapper {
       width: 90%;
+      /* height: 100%; */
+      margin-bottom: 5rem;
   }
 
   .list-title {
       font-size: 5rem;
-      width: 500px;
   }
 
   .exit-list {
@@ -834,6 +788,10 @@ input:-webkit-autofill:focus {
     font-size: 1.5rem;
   }
 
+  .title-element {
+    top: 8%;
+    font-size: 18px;
+  }
 }
 
 @media only screen
@@ -1001,5 +959,10 @@ input:-webkit-autofill:focus {
 
   .line2 {
     display: none;
+  }
+
+  .title-element {
+    top: 19.5%;
+    font-size: 13px;
   }
 }

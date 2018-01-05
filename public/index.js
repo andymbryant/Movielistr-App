@@ -1,5 +1,17 @@
 $(function() {
-    //
+
+    function resizeInput() {
+        $(this).attr('size', $(this).val().length-1);
+    }
+
+    $('input[type="text"]')
+        // event handler
+        .keyup(resizeInput)
+        // resize on page load
+        .each(resizeInput);
+
+    $(".list-title").before("<label for='list-title' class='title-element'>&nbspedit</label>");
+
     $(".list-card-click").on("click",function(e) {
         var form = $(this).closest("form");
         form.submit();
@@ -38,7 +50,16 @@ $(function() {
         $(this).closest('li').remove();
       });
 
-      // Change list name in DOM
+    $('.list-title').on('focus', function(e) {
+        e.preventDefault();
+        $('.title-element').css('display', 'none');
+    })
+
+    $('.list-title').on('focusout', function(e) {
+        e.preventDefault();
+        $('.title-element').css('display', 'inline');
+    })
+
     $('.list-title').on('change', function(e) {
         e.preventDefault();
         let listID = $('.list-id').val();
