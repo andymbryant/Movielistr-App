@@ -1,6 +1,5 @@
-# Project Title
-
-RecoMovie - The Best Way to Build Movie Lists
+# RecoMovie
+The Best Way to Build Movie Lists
 
 ![Landing Page](https://github.com/andymbryant/recomovie/blob/master/RecoMovie_Landing.jpg)
 ![Dashboard](https://github.com/andymbryant/recomovie/blob/master/RecoMovie_Dashboard.jpg)
