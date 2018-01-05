@@ -260,6 +260,7 @@ ol {
   font-size: 2rem;
   color: #666;
   font-family: 'Roboto', sans-serif;
+  width: 500px;
 }
 .card {
   border-radius: 2px;
