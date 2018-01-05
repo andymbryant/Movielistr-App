@@ -6,25 +6,18 @@ RecoMovie
 
 It's easy to get started! Just register a new account, log in, create a new list, and start adding movies!
 
+# Project Summary
+
+I built this using Node and jQuery for the Thinkful Back-end Capstone project.
+
 ## Built With
 
 * [Node](https://github.com/nodejs/node)
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [jQuery](https://github.com/jquery/jquery)
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Andy Bryant** - *Initial work* - [Github](https://github.com/andymbryant)
 
 ## License
 
