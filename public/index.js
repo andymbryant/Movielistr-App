@@ -1,7 +1,7 @@
 $(function() {
 
     function resizeInput() {
-        $(this).attr('size', $(this).val().length-1);
+        $(this).attr('size', $(this).val().length);
     }
 
     // if ($('#list-of-lists').has("li").length >= 1) {
@@ -20,11 +20,6 @@ $(function() {
 
     $(".list-title").before("<label for='list-title' class='title-element'>&nbspedit</label>");
 
-
-    // $(".list-card-click").on("click",function(e) {
-    //     var form = $(this).closest("form");
-    //     form.submit();
-    // });
 
     $(".edit-list").on("click",function(e) {
         var form = $(this).closest("form");
@@ -153,11 +148,6 @@ $(function() {
 
     // Add new list to DOM, send to server to add to database
 
-    // $(".new-list-button").on("click",function(e) {
-    //     let form = $(this).closest("form");
-    //     form.submit();
-    // });
-
     $('.new-list-form').on('submit', function(e) {
         e.preventDefault();
         console.log('new list');
@@ -184,7 +174,6 @@ $(function() {
             }
         });
         location.reload();
-        // $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list.');
     })
 
 //Back button for list
