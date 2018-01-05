@@ -53,23 +53,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(expressValidator({
-//   errorFormatter: function(param, msg, value) {
-//       var namespace = param.split('.')
-//       , root    = namespace.shift()
-//       , formParam = root;
-//
-//     while(namespace.length) {
-//       formParam += '[' + namespace.shift() + ']';
-//     }
-//     return {
-//       param : formParam,
-//       msg   : msg,
-//       value : value
-//     };
-//   }
-// }));
-
 app.use(flash());
 
 app.use(require('connect-flash')());
@@ -97,3 +80,5 @@ app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function(){
     console.log('Server started on port '+app.get('port'));
 });
+
+module.exports = app
