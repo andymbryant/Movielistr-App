@@ -1,43 +1,43 @@
-<div class="dash-wrapper">
-    <div class="dash-title">
-        <h1 class="page-header">Welcome, {{firstName}}.</h1>
-            <form class="logout-form" action="/logout" method="get">
-                <button id="logout-button" class="logout-button" type="submit" value="hello">Logout</button>
+
+    <div class="dash-wrapper">
+        <div class="dash-title">
+            <h1 class="page-header">Welcome, {{firstName}}.</h1>
+                <form class="logout-form" action="/logout" method="get">
+                    <button id="logout-button" class="logout-button" type="submit" value="hello">Logout</button>
+                </form>
+
+            {{#listFound}}
+                <p class="subheader">Select from below to view and edit your lists. Or you can create a new list.</p>
+            {{/listFound}}
+
+            {{^listFound}}
+                <p>Create a new list to get started.</p>
+            {{/listFound}}
+        </div>
+
+        <div class="dash-body">
+            <ol id="list-of-lists">
+                {{# each lists}}
+
+                <li>
+                    <div class="list-card">
+                        <h1 class="list-card-title">{{this.listName}}</h1>
+
+                        <form action="/lists" method="post">
+                            <input class="none" type="text" name="listID" value="{{this._id}}">
+                            <button class="edit-list" type="submit" value="hello">View/Edit</button>
+                        </form>
+
+                        <form action="/lists/remove" method="post">
+                            <button class="remove-list" type="submit" data-value="{{this._id}}">Delete</button>
+                        </form>
+                    </div>
+                </li>
+                {{/ each}}
+            </ol>
+
+            <form class="new-list-form" action="/lists/new-list" method="post">
+                <button class="new-list-button" id="new-list-button" type="submit" value="hello">Create New List</button>
             </form>
-
-        {{#listFound}}
-            <p class="subheader">Select from below to view and edit your lists. Or you can create a new list.</p>
-        {{/listFound}}
-
-        {{^listFound}}
-            <p>Create a new list to get started.</p>
-        {{/listFound}}
+        </div>
     </div>
-
-    <div class="dash-body">
-        <ol id="list-of-lists">
-            {{# each lists}}
-
-            <li>
-                <div class="list-card">
-                    <h1 class="list-card-title">{{this.listName}}</h1>
-
-                    <form action="/lists" method="post">
-                        <input class="none" type="text" name="listID" value="{{this._id}}">
-                        <button class="edit-list" type="submit" value="hello">View/Edit</button>
-                    </form>
-
-                    <form action="/lists/remove" method="post">
-                        <button class="remove-list" type="submit" data-value="{{this._id}}">Delete</button>
-                    </form>
-                </div>
-            </li>
-            {{/ each}}
-        </ol>
-
-        <form class="new-list-form" action="/lists/new-list" method="post">
-            <button class="new-list-button" id="new-list-button" type="submit" value="hello">Create New List</button>
-        </form>
-    </div>
-
-</div>

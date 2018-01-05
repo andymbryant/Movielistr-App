@@ -212,8 +212,8 @@ button {
 .svg {
   fill: #FF5733;
   position: relative;
-  right: 0rem;
-  top: 1.5rem;
+  right: 8px;
+  top: 16px;
   display: inline;
 }
 
@@ -317,6 +317,7 @@ ol {
   width: 70%;
   margin: 3rem auto 0;
 }
+
 
 .movie-wrapper {
   width: 75%;
