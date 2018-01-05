@@ -26,6 +26,7 @@ router.get('/', ensureAuthenticated, function(req, res){
 	});
 });
 
+// Standard EnsureAuthenticated Function
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();

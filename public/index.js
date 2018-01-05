@@ -1,14 +1,16 @@
 $(function() {
+    //
     $(".list-card-click").on("click",function(e) {
         var form = $(this).closest("form");
         form.submit();
     });
-
+    //Remove closest movie from DOM
     $(document).on('click', '.delete', function() {
         let listID = $('.list-id').val();
         let id = $(this).data('value');
         let data = {"movieID": id, "listID": listID};
 
+    //Make call to remove movie from database
         $.ajax({
             type: "POST",
             url: 'remove/movie',
@@ -19,11 +21,13 @@ $(function() {
         $(this).closest('li').remove();
     });
 
+    //Remove closest list from DOM
     $(document).on('click', '.remove-list', function(e) {
         e.preventDefault();
         let listID = $(this).data('value');
         let data = {"listID": listID};
 
+        //Make call to remove list from datbase
         $.ajax({
             type: "POST",
             url: 'remove/list',
@@ -34,11 +38,14 @@ $(function() {
         $(this).closest('li').remove();
       });
 
+      // Change list name in DOM
     $('.list-title').on('change', function(e) {
         e.preventDefault();
         let listID = $('.list-id').val();
         let newTitle = $('.list-title').val();
         let data = {"listID": listID, "newTitle": newTitle}
+
+        // Make call to update list name in database
         $.ajax({
             type: "POST",
             url: 'lists/update-title',
@@ -48,6 +55,8 @@ $(function() {
     })
 });
 
+    // Take IMDB URL input and subdmit it to Server
+    // Get returned data and use it to add filled card to DOM
     $('#input-form').on('submit', function (e) {
         e.preventDefault();
         const listID = $('.list-id').val();
@@ -102,6 +111,7 @@ $(function() {
             $('.add-movie').val('');
         });
 
+    // Add new list to DOM, send to server to add to database
     $('.new-list-form').on('submit', function(e) {
         e.preventDefault();
 
@@ -128,11 +138,13 @@ $(function() {
         });
     })
 
+//Back button for list
 $('#exit-list').on('submit', function(e) {
     e.preventDefault();
     window.location.replace('/');
 });
 
+// Logout of user
 $('.logout-form').on('submit', function(e) {
     e.preventDefault();
 

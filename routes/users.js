@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 
-var User = require('../models/user');
+const User = require('../models/user');
 
 // Register
 router.get('/register', function(req, res){
@@ -18,11 +18,11 @@ router.get('/login', function(req, res){
 
 // Register User
 router.post('/register', function(req, res){
-	var name = req.body.name;
-	var email = req.body.email;
-	var username = req.body.username;
-	var password = req.body.password;
-	var password2 = req.body.password2;
+	let name = req.body.name;
+	let email = req.body.email;
+	let username = req.body.username;
+	let password = req.body.password;
+	let password2 = req.body.password2;
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -39,7 +39,7 @@ router.post('/register', function(req, res){
 			errors:errors
 		});
 	} else {
-		var newUser = new User({
+		let newUser = new User({
 			name: name,
 			email:email,
 			username: username,
@@ -55,6 +55,8 @@ router.post('/register', function(req, res){
 		res.redirect('/users/login');
 	}
 });
+
+// Passport check on userName
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -76,16 +78,20 @@ passport.use(new LocalStrategy(
 	});
 }));
 
+
+// Passport stores session data
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
 
+// Passport removes session data
 passport.deserializeUser(function(id, done) {
     User.getUserById(id, function(err, user) {
     done(err, user);
     });
 });
 
+// Run authentication on login
 router.post('/login',
 	passport.authenticate('local', {
 		successRedirect:'/',
@@ -96,6 +102,7 @@ router.post('/login',
     	res.redirect('/');
   	});
 
+// Passport logout
 router.get('/logout', function(req, res){
 	req.session.destroy(function (err) {
 		res.contentType('application/json');

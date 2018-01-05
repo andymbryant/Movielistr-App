@@ -11,9 +11,11 @@ var async = require('async');
 let List = require('../models/list');
 let Movie = require('../models/movie');
 
+// Mongoose connection
 mongoose.connect('mongodb://heroku_n1ncd624:7ngrcj5fiib8c94e4dim03n8nj@ds229295.mlab.com:29295/heroku_n1ncd624')
 var db = mongoose.connection;
 
+// Once authenticated, return list from database and render movie-list with populated movies
 router.post('/', ensureAuthenticated, function(req, res) {
     let listID = req.body.listID;
     let listNameArray = [];
@@ -23,6 +25,7 @@ router.post('/', ensureAuthenticated, function(req, res) {
       let movieIDArray = list[0].movies;
       listNameArray.push(list[0].listName);
 
+      // This is an async call, so it must be wrapped in promise
       movieIDArray.forEach(function(movieID) {
         movieQueries.push(Movie.find({"id": movieID}));
       });
@@ -37,6 +40,7 @@ router.post('/', ensureAuthenticated, function(req, res) {
     })
 });
 
+// In rendered Movie-list, if user updates title it will update database
 router.post('/update-title', ensureAuthenticated, function(req, res) {
   let listID = req.body.listID;
   let newTitle = req.body.newTitle
@@ -50,9 +54,11 @@ router.post('/update-title', ensureAuthenticated, function(req, res) {
 );
 });
 
+// Adds movie to list in rendered movie-list
 router.post('/new-movie', ensureAuthenticated, (req, res) => {
   let listID = req.body.listID;
 
+    // Mongoose schema
     let user = new Movie({
       title: req.body['data[Title]'],
       rated: req.body['data[Rated]'],
@@ -81,6 +87,7 @@ router.post('/new-movie', ensureAuthenticated, (req, res) => {
   );
 });
 
+// Add new list
 router.get('/new-list', ensureAuthenticated, (req, res) => {
   let userID = req.user._id;
   List.create({ _id: ObjectId(), userID: userID, listName: 'New List' }, function (err, list) {
@@ -96,6 +103,7 @@ router.get('/back', ensureAuthenticated, function(req, res) {
 });
 
 
+// Standard EnsureAuthenticated Function
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();

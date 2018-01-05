@@ -10,9 +10,11 @@ var async = require('async');
 let List = require('../models/list');
 let Movie = require('../models/movie');
 
+// Mongoose connection
 mongoose.connect('mongodb://heroku_n1ncd624:7ngrcj5fiib8c94e4dim03n8nj@ds229295.mlab.com:29295/heroku_n1ncd624')
 var db = mongoose.connection;
 
+// Remove movie from list
 router.post('/movie', function(req, res) {
     let deleteID = req.body.movieID;
     let listID = req.body.listID;
@@ -31,6 +33,8 @@ router.post('/movie', function(req, res) {
         }
     );
 })
+
+// Remove list from database
 
 router.post('/list', function(req, res) {
     let listID = req.body.listID;
