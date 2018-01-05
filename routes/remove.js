@@ -38,7 +38,7 @@ router.post('/movie', function(req, res) {
 
 router.post('/list', function(req, res) {
     let listID = req.body.listID;
-    console.log(listID);
+    console.log(req.body);
     List.remove({"_id": listID}, function(err) {
         if (!err) {
             console.log('it worked!');

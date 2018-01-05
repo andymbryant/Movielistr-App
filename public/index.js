@@ -4,13 +4,13 @@ $(function() {
         $(this).attr('size', $(this).val().length-1);
     }
 
-    if ($('#list-of-lists').has("li").length >= 1) {
-        $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list.');
-    }
-
-    if ($('#list-of-lists').has("li").length == 0) {
-        $('.subheader').text('This is your dashboard. All of your lists will appear here. Get started by creating a new list.');
-    }
+    // if ($('#list-of-lists').has("li").length >= 1) {
+    //     $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list.');
+    // }
+    //
+    // if ($('#list-of-lists').has("li").length == 0) {
+    //     $('.subheader').text('This is your dashboard. All of your lists will appear here. Get started by creating a new list.');
+    // }
 
     $('input[type="text"]')
         // event handler
@@ -49,11 +49,11 @@ $(function() {
     });
 
     //Remove closest list from DOM
-    $("body").on('click', '.remove-list', function(e) {
+    $(document).on('click', '.remove-list', function(e) {
         e.preventDefault();
         let listID = $(this).data('value');
         let data = {"listID": listID};
-        console.log(listID);
+        console.log(data);
         //Make call to remove list from datbase
         $.ajax({
             type: "POST",
@@ -160,6 +160,7 @@ $(function() {
 
     $('.new-list-form').on('submit', function(e) {
         e.preventDefault();
+        console.log('new list');
 
         $.ajax({
             type: "GET",
@@ -170,11 +171,11 @@ $(function() {
                         <div class="list-card">
                             <h1 class="list-card-title">New List</h1>
                             <form action="/lists" method="post">
-                                <input class="none" type="text" name="listID" value="${data}">
+                                <input class="none" type="text" name="listID" data-value="${data}">
                                 <button class="edit-list" type="submit" value="hello">View/Edit</button>
                             </form>
                             <form action="/lists/remove" method="post">
-                                <input class="none" type="text" name="listID" value="${data}">
+                                <input class="none" type="text" name="listID" data-value="${data}">
                                 <button class="remove-list" type="submit" value="hello">Delete</button>
                             </form>
                         </div>
@@ -182,7 +183,8 @@ $(function() {
                 )
             }
         });
-        $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list.');
+        location.reload();
+        // $('.subheader').text('Select from below to view and edit your lists. Or you can create a new list.');
     })
 
 //Back button for list

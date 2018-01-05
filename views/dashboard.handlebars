@@ -5,7 +5,7 @@
                 <form class="logout-form" action="/logout" method="get">
                     <button id="logout-button" class="logout-button" type="submit" value="hello">Logout</button>
                 </form>
-            <p class="subheader"></p>
+            <p class="subheader">This is your Dashboard. All of your lists will appear here.</p>
 
         </div>
 
@@ -30,7 +30,8 @@
                 {{/ each}}
             </ol>
 
-            <form class="new-list-form" action="/lists/new-list" method="post">
+            <!-- <form class="new-list-form" action="/lists/new-list" method="post"> -->
+            <form class="new-list-form">
                 <button class="new-list-button" id="new-list-button" type="submit" value="hello">Create New List</button>
             </form>
         </div>
