@@ -2,6 +2,9 @@
 
 RecoMovie
 
+![alt text](https://github.com/andymbryant/recomovie/blob/master/RecoMovie_Landing.jpg)
+
+
 ## Getting Started
 
 It's easy to get started! Just register a new account, log in, create a new list, and start adding movies!
