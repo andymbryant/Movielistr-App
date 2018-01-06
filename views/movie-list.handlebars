@@ -1,7 +1,10 @@
 <div class="movie-wrapper">
 
-<input class='none list-id' type="text" value="{{listID}}">
-<input class="list-title" id="list-title" maxlength="30" name="list-title" type="text" value="{{listNameArray.[0]}}">
+    <div class="label-wrapper">
+        <input class='none list-id' type="text" value="{{listID}}">
+        <input class="list-title" id="list-title" maxlength="30" name="list-title" type="text" value="{{listNameArray.[0]}}">
+        <label for='list-title' class='title-element'>&nbspedit</label>
+    </div>
 
 <ol id="movies">
     {{# each movie}}

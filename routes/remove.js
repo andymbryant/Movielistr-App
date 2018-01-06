@@ -18,6 +18,7 @@ var db = mongoose.connection;
 router.post('/movie', function(req, res) {
     let deleteID = req.body.movieID;
     let listID = req.body.listID;
+    console.log(deleteID);
     Movie.remove({"id": deleteID}, function(err) {
         if (!err) {
             console.log('it worked!');

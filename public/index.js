@@ -18,8 +18,6 @@ $(function() {
         // resize on page load
         .each(resizeInput);
 
-    $(".list-title").before("<label for='list-title' class='title-element'>&nbspedit</label>");
-
 
     $(".edit-list").on("click",function(e) {
         var form = $(this).closest("form");
@@ -176,23 +174,23 @@ $(function() {
         location.reload();
     })
 
-//Back button for list
-$('#exit-list').on('submit', function(e) {
-    e.preventDefault();
-    window.location.replace('/');
-});
+    //Back button for list
+    $('#exit-list').on('submit', function(e) {
+        e.preventDefault();
+        window.location.replace('/');
+    });
 
-// Logout of user
-$('.logout-form').on('submit', function(e) {
-    e.preventDefault();
+    // Logout of user
+    $('.logout-form').on('submit', function(e) {
+        e.preventDefault();
 
-    $.ajax({
-        type: "GET",
-        url: 'users/logout',
-        success: data => {
-            window.location = data
-        }
-  })
-})
+        $.ajax({
+            type: "GET",
+            url: 'users/logout',
+            success: data => {
+                window.location = data
+            }
+        })
+    })
 
 });

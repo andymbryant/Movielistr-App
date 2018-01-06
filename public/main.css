@@ -117,6 +117,10 @@ body {
   transform: translateY(-50%);
 }
 
+.testuser {
+  color: #666;
+}
+
 .line2 {
   display: none;
 }
@@ -170,7 +174,6 @@ form {
   text-align: center;
   display: inline;
 }
-
 
 .remove-list {
   background-color: #FF5733;
@@ -304,7 +307,6 @@ ol {
   margin: 3rem auto 0;
 }
 
-
 .movie-wrapper {
   width: 75%;
   margin: auto;
@@ -437,12 +439,13 @@ input:-webkit-autofill:focus {
 }
 
 .title-element {
-  display: inline;
-  position: absolute;
-  font-size: 10px;
-  top: 9.5%;
+  position: relative;
   color: #FF5733;
+  top: 0px;
+  right: 10px;
 }
+
+
 
 @media only screen and (max-width: 900px) {
   .poster {
@@ -566,7 +569,7 @@ input:-webkit-autofill:focus {
     }
 
     .movie-wrapper {
-      min-width: 400px;
+      min-width: 450px;
     }
 
 }
@@ -578,7 +581,7 @@ input:-webkit-autofill:focus {
   and (orientation: portrait) {
 
   .splash-form {
-    height: 80%;
+    height: 85%;
     margin-bottom: 5rem;
     padding-top: 6rem;
   }
@@ -645,6 +648,10 @@ input:-webkit-autofill:focus {
   }
 
   .link {
+    font-size: 2rem;
+  }
+
+  .testuser {
     font-size: 2rem;
   }
 
@@ -727,7 +734,7 @@ input:-webkit-autofill:focus {
   }
 
   .list-title {
-      font-size: 5rem;
+      font-size: 3rem;
   }
 
   .exit-list {
