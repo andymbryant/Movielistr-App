@@ -1,38 +1,43 @@
 
-    <div class="dash-wrapper">
-        <div class="dash-title">
-            <h1 class="page-header">Welcome, {{firstName}}.</h1>
-                <form class="logout-form" action="/logout" method="get">
-                    <button id="logout-button" class="logout-button" type="submit" value="hello">Logout</button>
-                </form>
-            <p class="subheader">This is your Dashboard. All of your lists will appear here.</p>
+<div class="dash-wrapper">
 
-        </div>
-
-        <div class="dash-body">
-            <ol id="list-of-lists">
-                {{# each lists}}
-
-                <li>
-                    <div class="list-card">
-                        <h1 class="list-card-title">{{this.listName}}</h1>
-
-                        <form action="/lists" method="post">
-                            <input class="none" type="text" name="listID" value="{{this._id}}">
-                            <button class="edit-list" type="submit" value="hello">View/Edit</button>
-                        </form>
-
-                        <form action="/lists/remove" method="post">
-                            <button class="remove-list" type="submit" data-value="{{this._id}}">Delete</button>
-                        </form>
-                    </div>
-                </li>
-                {{/ each}}
-            </ol>
-
-            <!-- <form class="new-list-form" action="/lists/new-list" method="post"> -->
-            <form class="new-list-form">
-                <button class="new-list-button" id="new-list-button" type="submit" value="hello">Create New List</button>
+    <div class="dash-title">
+        <h1 class="page-header">Welcome, {{firstName}}.</h1>
+            <form class="logout-form" action="/logout" method="get">
+                <button id="logout-button" class="logout-button" type="submit" value="hello">Logout</button>
             </form>
-        </div>
+        <p class="subheader">This is your Dashboard. All of your lists will appear here.</p>
+
     </div>
+
+    <div class="dash-body">
+        <ol id="list-of-lists">
+            {{# each lists}}
+
+            <li>
+                <div class="list-card">
+                    <h1 class="list-card-title">{{this.listName}}</h1>
+
+                    <form action="/lists" method="post">
+                        <input class="none" type="text" name="listID" value="{{this._id}}">
+                        <button class="edit-list" type="submit" value="hello">View/Edit</button>
+                    </form>
+
+                    <form action="/lists/remove" method="post">
+                        <button class="remove-list" type="submit" data-value="{{this._id}}">Delete</button>
+                    </form>
+                </div>
+            </li>
+            {{/ each}}
+        </ol>
+
+        <!-- <form class="new-list-form" action="/lists/new-list" method="post"> -->
+        <form class="new-list-form">
+            <button class="new-list-button" id="new-list-button" type="submit" value="hello">Create New List</button>
+        </form>
+    </div>
+
+    <!-- <div class="film">
+
+    </div> -->
+</div>
