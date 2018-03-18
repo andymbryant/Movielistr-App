@@ -1,4 +1,6 @@
-# RecoMovie
+# Movielistr
+
+Check it out [here](http://www.movielistr.com).
 
 ![Landing Page](https://github.com/andymbryant/recomovie/blob/master/RecoMovie_Landing.jpg)
 ![Dashboard](https://github.com/andymbryant/recomovie/blob/master/RecoMovie_Dashboard.jpg)
