@@ -45,7 +45,7 @@ body {
   color: #666;
   text-align: center;
   font-family: 'Roboto Mono', monospace;
-  font-size: 50px;
+  font-size: 30px;
   margin: 0;
 }
 
@@ -63,7 +63,7 @@ body {
   font-weight: 400;
   text-align: left;
   font-size: 1rem;
-  margin: 2.5rem auto;
+  margin: 0 auto;
   width: 90%;
 }
 
@@ -506,7 +506,7 @@ input:-webkit-autofill:focus {
 
     .app-description {
       font-size: 1rem;
-      margin: 2rem auto 3rem;
+      /* margin: 2rem auto 3rem; */
       width: 90%;
     }
 
@@ -650,7 +650,7 @@ input:-webkit-autofill:focus {
     font-size: 2rem;
   }
   .app-title {
-    font-size: 7rem;
+    font-size: 5rem;
   }
 
   .form-control, .log-btn {
@@ -829,7 +829,7 @@ input:-webkit-autofill:focus {
   }
 
   .app-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .app-description {
