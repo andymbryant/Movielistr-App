@@ -14,10 +14,14 @@ It's easy to get started! Just register a new account, log in, create a new list
 
 I built this using Node and jQuery for the Thinkful Back-end Capstone project.
 
+## API
+The frontend accesses the backend using authenticated ajax calls, retrieving data from an mLab database.
+
 ## Built With
 
 * [Node](https://github.com/nodejs/node)
 * [jQuery](https://github.com/jquery/jquery)
+* [Mustache](https://mustache.github.io/)
 
 ## Authors
 
